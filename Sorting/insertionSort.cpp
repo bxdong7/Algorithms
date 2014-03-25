@@ -1,6 +1,7 @@
+#include <cstdlib>
 #include "sort.h"
 
-template <size_t N>
+
 void insertionSort (int (&array)[N]) {
   //the idea is to everytime add a new value to a sorted array
   //increment the sorted array's size from 1 to N
