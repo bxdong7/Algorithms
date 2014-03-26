@@ -17,8 +17,8 @@
   }
 */
 void maxHeapify (int *array, size_t i, const size_t &size) {
-  size_t left = left(i);
-  size_t right = right(i);
+  size_t left = LEFT(i);
+  size_t right = RIGHT(i);
   size_t largest = i;
   if((left<=size) && (array[largest]<array[left]))
     largest = left;

@@ -6,15 +6,15 @@
   calculate the index of left child of an index in the heap array
   declare here because inline function needs to be declared in header file
 */
-inline size_t left (const size_t &index) {
+inline size_t LEFT (const size_t &index) {
   return 2*index+1;
 }
 
-inline size_t right (const size_t &index) {
+inline size_t RIGHT (const size_t &index) {
   return 2*index+2;
 }
 
-inline size_t parent (const size_t &index) {
+inline size_t PARENT (const size_t &index) {
   return (index-1)/2;
 }
 
