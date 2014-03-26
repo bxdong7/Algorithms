@@ -27,6 +27,15 @@ int main () {
   cout << "test merge sort end" << endl;
   cout << "-------------------------------" << endl << endl << endl;
   
+  //test heap sort
+  cout << "test heap sort begin" << endl;
+  generateRandomArray (array);
+  cout << "before sort " << array << endl;
+  heapSort (array);
+  cout << "after sort " << array << endl;
+  cout << "test heap sort end" << endl;
+  cout << "-------------------------------" << endl << endl << endl;
+  
   delete[] array;
   return 0;
 }

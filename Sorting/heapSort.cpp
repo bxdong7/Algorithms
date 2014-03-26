@@ -1,5 +1,7 @@
+#include <iostream>
 #include "sort.h"
 #include "heapSort.h"
+#include "utility.h"
 
 /*
   maxHeapify (A, i, size) {
@@ -17,9 +19,9 @@
   }
 */
 void maxHeapify (int *array, size_t i, const size_t &size) {
-  size_t left = LEFT(i);
-  size_t right = RIGHT(i);
-  size_t largest = i;
+  volatile size_t left = LEFT(i);
+  volatile size_t right = RIGHT(i);
+  volatile size_t largest = i;
   if((left<=size) && (array[largest]<array[left]))
     largest = left;
   if((right<=size) && (array[largest]<array[right]))
@@ -44,7 +46,7 @@ void maxHeapify (int *array, size_t i, const size_t &size) {
 */
 void buildMaxHeap (int *array) {
   size_t length = N;
-  for(size_t i=length/2-1; i>=0; i--) {
+  for(long i=length/2-1; i>=0; i--) {
     maxHeapify (array, i, length-1);
   }
 }
