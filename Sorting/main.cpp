@@ -26,6 +26,7 @@ int main () {
   cout << "after sort " << array << endl;
   cout << "test merge sort end" << endl;
   cout << "-------------------------------" << endl << endl << endl;
-
+  
+  delete[] array;
   return 0;
 }

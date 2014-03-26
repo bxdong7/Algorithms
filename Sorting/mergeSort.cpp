@@ -1,18 +1,18 @@
 #include <climits>
 #include "sort.h"
 
-void divide (int (&array)[N], size_t start, size_t end);
+void divide (int *array, size_t start, size_t end);
 
-void conquer (int (&array)[N], size_t start, size_t mid, size_t end);
+void conquer (int *array, size_t start, size_t mid, size_t end);
 
 
-void mergeSort (int (&array)[N]) {
+void mergeSort (int *array) {
   //divide start from 0 to N-1
   divide (array, 0, N-1);
 }
 
 
-void divide (int (&array)[N], size_t start, size_t end) {
+void divide (int *array, size_t start, size_t end) {
   if (start < end) {
     size_t mid = (start+end)/2;
     divide (array, start, mid);
@@ -22,7 +22,7 @@ void divide (int (&array)[N], size_t start, size_t end) {
 }
 
 
-void conquer (int (&array)[N], size_t start, size_t mid, size_t end) {
+void conquer (int *array, size_t start, size_t mid, size_t end) {
   //assume array[start->mid] and array[mid+1->end] are sorted, combine them in ascending order also
   
   //copy array[start->mid] to left, copy array[mid+1->end] to right

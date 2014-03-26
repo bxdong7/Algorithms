@@ -3,7 +3,7 @@
 #include "utility.h"
 
 
-void generateRandomArray (int (&array)[N]) {
+void generateRandomArray (int *array) {
   std::default_random_engine generator;
   std::uniform_int_distribution<int> distribution(1, 100);
 
@@ -14,7 +14,7 @@ void generateRandomArray (int (&array)[N]) {
 }
 
 
-std::ostream& operator<< (std::ostream &os, int (&array)[N]) {
+std::ostream& operator<< (std::ostream &os, int *array) {
   os << "array: ";
   for (size_t i=0; i<N; i++)
     os << array[i] << ", ";

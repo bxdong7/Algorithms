@@ -2,7 +2,7 @@
 #include "sort.h"
 
 
-void insertionSort (int (&array)[N]) {
+void insertionSort (int *array) {
   //the idea is to everytime add a new value to a sorted array
   //increment the sorted array's size from 1 to N
 

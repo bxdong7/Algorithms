@@ -8,15 +8,13 @@ extern const size_t N;
 /*
   generate random array of length N
 */
-template <size_t N>
-void generateRandomArray (int (&array)[N]); 
+void generateRandomArray (int *array); 
 
 
 /*
   output an array, without a return character
 */
-template <size_t N>
-std::ostream& operator<< (std::ostream &os, int (&array)[N]); 
+std::ostream& operator<< (std::ostream &os, int *array); 
 
 
 
