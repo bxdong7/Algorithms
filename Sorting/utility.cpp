@@ -3,9 +3,9 @@
 #include "utility.h"
 
 
+std::default_random_engine generator;
+std::uniform_int_distribution<int> distribution(1, 100);
 void generateRandomArray (int *array) {
-  std::default_random_engine generator;
-  std::uniform_int_distribution<int> distribution(1, 100);
 
   for (size_t i=0; i<N; i++) {
     int number = distribution(generator);
