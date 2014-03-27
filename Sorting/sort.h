@@ -29,4 +29,15 @@ void mergeSort (int *array);
 */
 void heapSort (int *array);
 
+
+/*
+  quick sort
+  idea: divide-conquer-combine. 
+  	Divide partitions the subarray such that the last element is a pivot, and all elements before the pivot is smaller than it, all elements after it is larger than it.
+	Conquer: keeps partitioning until the subarray contains only one element
+	Combine: do nothing, because after the previous two steps, the array is already sorted
+  complexity: worst case O(n^2). Average O(cnlogn), but the constant is very small.
+*/
+void quickSort (int *array);
+
 #endif

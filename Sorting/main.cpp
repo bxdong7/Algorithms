@@ -36,6 +36,15 @@ int main () {
   cout << "test heap sort end" << endl;
   cout << "-------------------------------" << endl << endl << endl;
   
+  //test quick sort
+  cout << "test quick sort begin" << endl;
+  generateRandomArray (array);
+  cout << "before sort " << array << endl;
+  quickSort (array);
+  cout << "after sort " << array << endl;
+  cout << "test quick sort end" << endl;
+  cout << "-------------------------------" << endl << endl << endl;
+  
   delete[] array;
   return 0;
 }
