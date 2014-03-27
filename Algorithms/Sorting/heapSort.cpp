@@ -18,17 +18,18 @@
       maxHeapify(A, largest, size)
   }
 */
-void maxHeapify (int *array, size_t i, const size_t &size) {
-  volatile size_t left = LEFT(i);
-  volatile size_t right = RIGHT(i);
-  volatile size_t largest = i;
+template <class T, size_t N>
+void maxHeapify (T (&array)[N], size_t i, const size_t &size) {
+  size_t left = LEFT(i);
+  size_t right = RIGHT(i);
+  size_t largest = i;
   if((left<=size) && (array[largest]<array[left]))
     largest = left;
   if((right<=size) && (array[largest]<array[right]))
     largest = right;
 
   if(largest != i) {
-    int tmp = array[i];
+    T tmp = array[i];
     array[i] = array[largest];
     array[largest] = tmp;
     maxHeapify (array, largest, size);
@@ -44,7 +45,8 @@ void maxHeapify (int *array, size_t i, const size_t &size) {
       maxHeapify (A, i, length-1);
   }
 */
-void buildMaxHeap (int *array) {
+template <class T, size_t N>
+void buildMaxHeap (T (&array)[N]) {
   size_t length = N;
   for(long i=length/2-1; i>=0; i--) {
     maxHeapify (array, i, length-1);
@@ -61,12 +63,13 @@ void buildMaxHeap (int *array) {
       maxHeapify (A, 0, size)
   }
 */
-void heapSort (int *array) {
+template <class T, size_t N>
+void heapSort (T (&array)[N]) {
   buildMaxHeap (array);
   size_t length = N;
   size_t size = length-1;
   for (; size>0; ) {
-    int max = array[0];
+    T max = array[0];
     array[0] = array[size];
     array[size] = max;
     size--;

@@ -26,7 +26,7 @@ LFLAGS =
 LIBS = 
 
 # define the C source files
-SRCS = quickSort.cpp heapSort.cpp insertionSort.cpp mergeSort.cpp utility.cpp main.cpp
+SRCS = main.cpp
 
 # define the C object files 
 #

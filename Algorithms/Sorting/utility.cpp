@@ -1,22 +1,26 @@
 #include <iostream>
+#include <string>
 #include <random>
 #include "utility.h"
 
 
 std::default_random_engine generator;
 std::uniform_int_distribution<int> distribution(1, 100);
-void generateRandomArray (int *array) {
+
+template <class T, size_t N>
+void generateRandomArray (T (&array)[N]) {
 
   for (size_t i=0; i<N; i++) {
-    int number = distribution(generator);
+    T number = distribution(generator);
     array[i] = number;
   }
 }
 
 
-std::ostream& operator<< (std::ostream &os, int *array) {
-  os << "array: ";
+template <class T, size_t N>
+std::ostream& operator<< (std::ostream &os, T (&array)[N]) {
+  os << std::string("array: ");
   for (size_t i=0; i<N; i++)
-    os << array[i] << ", ";
+    os << array[i] << std::string(", ");
   return os;
 }

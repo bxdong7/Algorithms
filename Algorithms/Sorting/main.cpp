@@ -1,50 +1,50 @@
 #include <iostream>
+#include <string>
 #include "utility.h"
 #include "sort.h"
 using namespace std;
 
-const size_t N = 6;
 
 int main () {
   //will use this array to do all the tests
-  int *array = new int[N]();
+  int array[6]; 
 
   //test insertion sort
-  cout << "test insertion sort begin" << endl;
+  cout <<string("test insertion sort begin") << endl;
   generateRandomArray (array);
-  cout << "before sort " << array << endl;
+  cout <<string("before sort ") << array << endl;
   insertionSort (array);
-  cout << "after sort " << array << endl;
-  cout << "test insertion sort end" << endl;
-  cout << "-------------------------------" << endl << endl << endl;
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test insertion sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
 
   //test merge sort
-  cout << "test merge sort begin" << endl;
+  cout <<string("test merge sort begin") << endl;
   generateRandomArray (array);
-  cout << "before sort " << array << endl;
+  cout <<string("before sort ") << array << endl;
   mergeSort (array);
-  cout << "after sort " << array << endl;
-  cout << "test merge sort end" << endl;
-  cout << "-------------------------------" << endl << endl << endl;
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test merge sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
   
   //test heap sort
-  cout << "test heap sort begin" << endl;
+  cout <<string("test heap sort begin") << endl;
   generateRandomArray (array);
-  cout << "before sort " << array << endl;
+  cout <<string("before sort ") << array << endl;
   heapSort (array);
-  cout << "after sort " << array << endl;
-  cout << "test heap sort end" << endl;
-  cout << "-------------------------------" << endl << endl << endl;
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test heap sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
   
   //test quick sort
-  cout << "test quick sort begin" << endl;
+  cout <<string("test quick sort begin") << endl;
   generateRandomArray (array);
-  cout << "before sort " << array << endl;
+  cout <<string("before sort ") << array << endl;
   quickSort (array);
-  cout << "after sort " << array << endl;
-  cout << "test quick sort end" << endl;
-  cout << "-------------------------------" << endl << endl << endl;
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test quick sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
   
-  delete[] array;
+//  delete[] array;
   return 0;
 }

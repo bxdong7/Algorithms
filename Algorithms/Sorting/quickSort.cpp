@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "sort.h"
 
 /*
@@ -18,15 +20,16 @@
     partition(array, start, i)
     partition(array, i+2, end)
 */
-void partition (int *array, int start, int end) {
+template <class T, size_t N>
+void partition (T (&array)[N], long start, long end) {
   if (start < end) {
-    int value = array[end];
-    int i = start-1;	//the index of the last element whose value is smaller than array[end]
-    int j = start;	//go through the array
+    T value = array[end];
+    long i = start-1;	//the index of the last element whose value is smaller than array[end]
+    long j = start;	//go through the array
     while (j < end) {
       if (array[j] < value) {
         //switch array[i+1] and array[end]
-	int tmp = array[i+1];
+	T tmp = array[i+1];
 	array[i+1] = array[j];
 	array[j] = tmp;
 	//i++
@@ -46,6 +49,8 @@ void partition (int *array, int start, int end) {
   divide and conquer: partition
   combine: do nothing
 */
-void quickSort (int *array) {
-  partition (array, 0, N-1);
+template <class T, size_t N>
+void quickSort (T (&array)[N]) {
+  std::cout << array <<std:: endl;
+  partition (array, static_cast<long>(0), static_cast<long>(N-1));
 }

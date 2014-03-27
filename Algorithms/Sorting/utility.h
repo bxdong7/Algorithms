@@ -3,21 +3,22 @@
 #include <random>
 #include <iostream>
 
-extern const size_t N;
 
 /*
   generate random array of length N
 */
-void generateRandomArray (int *array); 
+template <class T, size_t N>
+void generateRandomArray (T (&array)[N]); 
 
 
 /*
   output an array, without a return character
 */
-std::ostream& operator<< (std::ostream &os, int *array); 
+template <class T, size_t N>
+std::ostream& operator<< (std::ostream &os, T (&array)[N]); 
 
 
 
 
-
+#include "utility.cpp"
 #endif
