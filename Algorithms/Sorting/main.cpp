@@ -45,6 +45,14 @@ int main () {
   cout <<string("test quick sort end") << endl;
   cout <<string("-------------------------------") << endl << endl << endl;
   
-//  delete[] array;
+  //test counting sort
+  cout <<string("test counting sort begin") << endl;
+  generateRandomArray (array);
+  cout <<string("before sort ") << array << endl;
+  countingSort (array, 100);
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test counting sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
+  
   return 0;
 }

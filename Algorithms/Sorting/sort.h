@@ -44,9 +44,21 @@ template <class T, size_t N>
 void quickSort (T (&array)[N]);
 
 
+/*
+  counting sort
+  condition: input array of size n, each element in the range [0, k], where k is O(n)
+  idea: three loops
+  	first go through the array to count the frequency of element value in [0, k]
+	second calculate the number of elements in array whose value is no larger than i in [0, k]
+	third put each element in the array in the correct position
+  complexity: O(k+n)=O(n)
+*/
+template <class T, size_t N>
+void countingSort (T (&array)[N], const long &k);
 #include "insertionSort.cpp"
 #include "mergeSort.cpp"
 #include "heapSort.h"
 #include "quickSort.cpp"
+#include "countingSort.cpp"
 
 #endif
