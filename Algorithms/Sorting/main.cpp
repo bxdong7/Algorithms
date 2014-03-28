@@ -54,5 +54,14 @@ int main () {
   cout <<string("test counting sort end") << endl;
   cout <<string("-------------------------------") << endl << endl << endl;
   
+  //test radix sort
+  cout <<string("test radix sort begin") << endl;
+  generateRandomArray (array);
+  cout <<string("before sort ") << array << endl;
+  radixSort (array, 2, 10);
+  cout <<string("after sort ") << array << endl;
+  cout <<string("test radix sort end") << endl;
+  cout <<string("-------------------------------") << endl << endl << endl;
+  
   return 0;
 }

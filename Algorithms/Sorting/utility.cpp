@@ -5,7 +5,7 @@
 
 
 std::default_random_engine generator;
-std::uniform_int_distribution<int> distribution(1, 100);
+std::uniform_int_distribution<int> distribution(10, 99);
 
 template <class T, size_t N>
 void generateRandomArray (T (&array)[N]) {

@@ -33,7 +33,7 @@ void countingSort (T (&array)[N], const long &k) {
   T C[N];
   for(long i=0; i<static_cast<long>(N); i++)
     C[i] = array[i];
-  for(long i=0; i<static_cast<long>(N); i++) 
+  for(long i=static_cast<long>(N-1); i>=0; i--) 
     array[--B[C[i]]] = C[i];
   delete[] B;
 }

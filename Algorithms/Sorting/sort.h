@@ -55,10 +55,21 @@ void quickSort (T (&array)[N]);
 */
 template <class T, size_t N>
 void countingSort (T (&array)[N], const long &k);
+
+
+/*
+  radix sort
+  condition: input array of size n, each element contains d digit, each digit ranges [0, k]
+  idea: apply stable sort on each digit from least important to most important
+  complexity: O(d*(n+k)) = O(n)
+*/
+template <class T, size_t N>
+void radixSort (T (&array)[N], const int &d, const int &k);
 #include "insertionSort.cpp"
 #include "mergeSort.cpp"
 #include "heapSort.h"
 #include "quickSort.cpp"
 #include "countingSort.cpp"
+#include "radixSort.cpp"
 
 #endif
