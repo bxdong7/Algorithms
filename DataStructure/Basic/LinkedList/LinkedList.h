@@ -1,6 +1,7 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 #include <iostream>
+#include <stdexcept>
 #define DEFAULT 10
 
 /*
@@ -36,7 +37,7 @@ private:
   ~Node ();
 
   T value;
-  T* next;
+  Node<T>* next;
 };
 
 
@@ -49,12 +50,17 @@ public:
   LinkedList (const size_t &);
   LinkedList (const LinkedList<T> &);
   LinkedList<T>& operator= (const LinkedList<T> &);
-  void insert (const T&);
+  void insert (const T&);	//add at the head
+  void append (const T&);	//add at the end
   void remove (const T&);
-  const Node<T>& search (const T&) const;
-  ~LinkedList *();
+  void remove () throw (std::underflow_error);	//remove the head
+  void remove (const Node<T> *) throw (std::invalid_argument);
+  Node<T>* search (const T&) const;
+  ~LinkedList ();
 private:
+  void allocate ();
   Node<T> *head;
+  Node<T> *first_free;
 };
 
 #include "LinkedList.cpp"
