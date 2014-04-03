@@ -16,6 +16,7 @@
 
 template <class T> class Node;
 template <class T> class LinkedList;
+template <class T> class Stack;
 
 template <class T>
 std::ostream& operator<< (std::ostream &, const Node<T>&);
@@ -26,9 +27,10 @@ std::ostream &operator<< (std::ostream &, const LinkedList<T>&);
 template <class T>
 class Node {
 friend class LinkedList<T>;
+friend class Stack<T>;
 friend std::ostream& operator<< <T> (std::ostream &, const Node<T>&);
 friend std::ostream& operator<< <T> (std::ostream &, const LinkedList<T>&);
-private:
+protected:
   Node ();
   Node (const T&);
   Node (const T&, T* const);
@@ -57,7 +59,7 @@ public:
   void remove (const Node<T> *) throw (std::invalid_argument);
   Node<T>* search (const T&) const;
   ~LinkedList ();
-private:
+protected:
   void allocate ();
   Node<T> *head;
   Node<T> *first_free;
