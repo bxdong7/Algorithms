@@ -163,7 +163,7 @@ void LinkedList<T>::remove (const Node<T> *n) throw (std::invalid_argument){
   if (n == NULL)
     throw std::invalid_argument("remove a NULL pointer");
   
-  Node<T> *p1, p2;
+  Node<T> *p1, *p2;
   p1 = NULL;
   p2 = NULL;	//p1 = p2 + 1
   //if head->value == v
