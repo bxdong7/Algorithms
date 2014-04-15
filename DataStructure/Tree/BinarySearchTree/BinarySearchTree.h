@@ -1,6 +1,7 @@
 #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
 #include <iostream>
+#include <stdexcept>
 
 /*
   Binary Search Tree
@@ -11,8 +12,8 @@
     PREORDER, INORDER, POSTORDER: O(n)
 */
 
-template <class T> TreeNode;
-template <class T> BST;
+template <class T> class TreeNode;
+template <class T> class BST;
 
 template <class T>
 std::ostream& operator<< (std::ostream&, const TreeNode<T>&);
@@ -34,6 +35,7 @@ private:
   TreeNode ();
   TreeNode (const T &);
   TreeNode (const TreeNode<T> &);
+  void copy (const TreeNode<T> *n, TreeNode<T> *cp);
   ~TreeNode ();
 };
 
@@ -46,14 +48,14 @@ public:
   BST (const BST<T> &);
   void insert (const T&);
   void insert (const TreeNode<T> &);
-  void remove (const T&);	//if there are multiple such values, only remove one of them
-  void remove (const TreeNode<T> &);
-  TreeNode* search (const T&);	//if there are multiple such values, only return one
-  const TreeNode* search (const T&) const;
+  void remove (const T&) throw (std::runtime_error);	//if there are multiple such values, only remove one of them. Throw error when the value does not exist
+  void remove (TreeNode<T> &) throw (std::runtime_error);
+  TreeNode<T>* search (const T&);	//if there are multiple such values, only return one
+  const TreeNode<T>* search (const T&) const;
   T predecessor (const T&);
-  TreeNode* predecessor (const T&);
+  const TreeNode<T>* predecessor (const T&) const;
   T successor (const T&);
-  TreeNode* successor (const T&);
+  const TreeNode<T>* successor (const T&) const;
   void preOrder () const;
   void inOrder () const;
   void postOrder () const;
@@ -62,6 +64,15 @@ public:
   ~BST ();
 private:
   TreeNode<T> *root;
+  TreeNode<T>* MAXIMUM (TreeNode<T> *);
+  const TreeNode<T>* MAXIMUM (const TreeNode<T> *) const;
+  TreeNode<T>* MINIMUM (TreeNode<T> *);
+  const TreeNode<T>* MINIMUM (const TreeNode<T> *) const;
+  void PRE (const TreeNode<T> *n) const;
+  void IN (const TreeNode<T> *n) const;
+  void POST (const TreeNode<T> *n) const;
+  void TRANSPOSE (TreeNode<T> *n1, TreeNode<T> *n2) throw (std::invalid_argument); 
+//  void TRANSPOSE (TreeNode<T> *n1, TreeNode<T> *n2) throw (std::invalid_argument);	//replace n1 with n2 in the tree	
 };
 
 #include "BinarySearchTree.cpp"
