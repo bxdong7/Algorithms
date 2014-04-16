@@ -1,0 +1,1 @@
+Dynamic programming should be used if you can split problem into subproblems, while these subproblems share sub-subproblems.
