@@ -39,7 +39,7 @@ SRCS = CuttingRod.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # define the executable file 
-MAIN = dp 
+MAIN = cuttingRod 
 
 #
 # The following part of the makefile is generic; it can be used to 
