@@ -14,6 +14,7 @@ int main () {
   p[5] = 20;
   p[6] = 25;
   matrixChainMulti (p, 6);
+  matrixChainTopDown (p, 6);
   cout << "test matrixChainMulti end" << endl; 
   return 0;
 }

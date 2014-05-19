@@ -12,6 +12,12 @@
 int matrixChainMulti (const int *p, const int &n);
 
 //help output the parenthesization
-void matrixChainMutliAux (const int **s, const int &i, const int &j);
+void matrixChainMultiAux (const int **s, const int &i, const int &j);
 
+/*
+  calculate the minimal number of multiplication in a top down fashion
+*/
+int matrixChainTopDown (const int *p, const int &n);
+
+int matrixChainLookup (int **m, int **s, const int *p, const int &i, const int &j);
 #endif
