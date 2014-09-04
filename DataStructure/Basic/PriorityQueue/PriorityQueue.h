@@ -17,7 +17,7 @@ template <class T>
 class PriorityQueue {
   PriorityQueue ();
   template <size_t N> PriorityQueue (T (&)[N]);	//template copy constructor to copy array of any size
-  void add (const T&);
+  void insert (const T&);
   T fetch ();	//get the task with largest pritory and delete it from the queue
   cosnt T& maximal () const;	//get the largest priority
   void increasePriority (long, const T&);	//increase the i-th element's priority by a number
