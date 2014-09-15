@@ -100,7 +100,7 @@ int *Graph::BFS (const int &s) {
     Q.pop ();
 
     //foreach v in Adj(u)
-    for (int i=0; i<u; i++) {
+    for (int i=0; i<n; i++) {
       if (i != u) {
         if (m[u][i] == 1) {
 	  v = i;
@@ -127,6 +127,60 @@ int *Graph::BFS (const int &s) {
   return parent;
 }
 
+int *Graph::DFS () {
+  int *parent,	/* the parent array */
+      *color;	/* the color array */
+
+  //initialize color
+  color = new int[n];
+  for (int i=0; i<n; i++)
+      color[i] = White;
+
+  //initialize parent
+  parent = new int[n];
+  for (int i=0; i<n; i++)
+      parent[i] = NIL;
+  
+  time = 0;
+  d = new int[n];
+  f = new int[n];
+
+  //foreach v in V
+  for (int v=0; v<n; v++) {
+    //if v.color==White
+    if (color[v] == White) {
+      //DFSVisit(p, v);
+      DFSVisit (parent, color, v);
+    }
+  }
+
+  delete[] color;
+
+  return parent;
+}
+
+void Graph::DFSVisit (int *parent, int *color, const int &u) {
+  //update discovery time
+  time++;
+  d[u] = time;
+  color[u] = Gray;
+
+  //foreach v in Adj(u)
+  for (int v=0; v<n; v++) {
+    //if v.color == White
+    if ((u!=v) && (m[u][v]==1) && (color[v]==White)) {
+      //DFSVisit(v)
+      parent[v] = u;
+      DFSVisit(parent, color, v);
+    }
+  }
+
+  //update finish time
+  time++;
+  f[u] = time;
+  color[u] = Black;
+}
+
 void Graph::printPath (const int *parent, const int &s, const int &v) {
   if (v == s)
     cout << s;
@@ -145,6 +199,12 @@ Graph::~Graph () {
     delete[] m[i];
 
   delete[] m;
+
+  if (d != NULL)
+    delete[] d;
+
+  if (f != NULL)
+    delete[] f;
 }
 
 bool Graph::addRandomEdge () {
